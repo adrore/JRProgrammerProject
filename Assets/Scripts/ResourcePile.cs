@@ -9,8 +9,21 @@ using UnityEngine;
 public class ResourcePile : Building
 {
     public ResourceItem Item;
-
-    public float ProductionSpeed = 0.5f;
+    private float productionSpeed = 0.5f;
+    public float ProductionSpeed
+    {
+        get { return productionSpeed; }
+        set { 
+            if(value < 0)
+            {
+                Debug.Log("You can't set a negative production speed!");
+            }
+            else
+            {
+                productionSpeed = value;
+            }
+        }
+    }
 
     private float m_CurrentProduction = 0.0f;
 
